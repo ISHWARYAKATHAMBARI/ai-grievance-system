@@ -42,14 +42,7 @@
                                 <option value="rejected">Rejected</option>
                             </select>
                         </div>
-                        <div class="col-md-3">
-                            <select class="form-select" id="priorityFilter">
-                                <option value="">All Priority</option>
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
-                                <option value="low">Low</option>
-                            </select>
-                        </div>
+
                         <div class="col-md-3">
                             <button class="btn btn-primary" onclick="loadPetitions()">Apply Filters</button>
                         </div>
@@ -102,7 +95,7 @@
 
             const filters = {
                 status: document.getElementById('statusFilter').value,
-                priority: document.getElementById('priorityFilter').value
+
             };
 
             try {
@@ -118,7 +111,7 @@
                                 </div>
                                 <div>
                                     <span class="badge ${getStatusBadgeClass(petition.status)}">${formatStatus(petition.status)}</span>
-                                    <span class="badge ${getPriorityBadgeClass(petition.priority)} ms-2">${petition.priority.toUpperCase()}</span>
+
                                 </div>
                             </div>
                             <p class="text-muted mb-2">${petition.description}</p>
@@ -166,7 +159,6 @@
                         <div class="col-md-6">
                             <strong>Category:</strong> ${petition.category}<br>
                             <strong>Department:</strong> ${petition.department || 'Pending'}<br>
-                            <strong>Priority:</strong> <span class="badge ${getPriorityBadgeClass(petition.priority)}">${petition.priority.toUpperCase()}</span>
                         </div>
                         <div class="col-md-6">
                             <strong>Status:</strong> <span class="badge ${getStatusBadgeClass(petition.status)}">${formatStatus(petition.status)}</span><br>

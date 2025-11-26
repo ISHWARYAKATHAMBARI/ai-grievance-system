@@ -25,6 +25,10 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
 
+    # Configure CORS
+    from flask_cors import CORS
+    CORS(app, resources={r"/*": {"origins": "*"}})
+
     # ✅ Auto-create all tables when app starts (no python shell needed)
     with app.app_context():
         db.create_all()
